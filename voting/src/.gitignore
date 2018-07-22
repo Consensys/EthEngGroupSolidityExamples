@@ -1,0 +1,10 @@
+# Ignore build output
+build
+
+# MAC folder attributes file.
+.DS_Store
+
+node_modules
+package-lock.json
+.node*
+
