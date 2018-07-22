@@ -1,11 +1,23 @@
+/*
+ * Copyright 2018 ConsenSys AG.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
 /**
  * This file contains code which is common to many of the test files.
  */
 
-const VotingGreetingImpl = artifacts.require("./VotingGreetingImpl.sol");
+const VotingGreetingImpl = artifacts.require("./VotingGreeting.sol");
 // All tests of the public API must be tested via the interface. This ensures all functions
 // which are assumed to be part of the public API actually are in the interface.
-const VotingGreeting = artifacts.require("./VotingGreeting.sol");
+const VotingGreeting = artifacts.require("./VotingGreetingInterface.sol");
 
 
 
@@ -14,7 +26,7 @@ const VOTING_PERIOD = "3";
 const VOTE_VIEWING_PERIOD = "2";
 
 
-// Voting actions. Taken from VotingGreeting.sol.
+// Voting actions. Taken from VotingGreetingInterface.sol.
 const VOTE_NONE = "0";
 const VOTE_ADD_PARTICIPANT = "1";
 const VOTE_REMOVE_PARTICIPANT = "2";
