@@ -15,11 +15,6 @@
  * on only the constructor having been run.
  *
  */
-const VotingGreetingImpl = artifacts.require("./VotingGreeting.sol");
-// All tests of the public API must be tested via the interface. This ensures all functions
-// which are assumed to be part of the public API actually are in the interface.
-const VotingGreeting = artifacts.require("./VotingGreetingInterface.sol");
-
 const VotingAlg = artifacts.require("./VotingAlgMajority.sol");
 
 contract('VotingGreeting: Empty Tests', function(accounts) {

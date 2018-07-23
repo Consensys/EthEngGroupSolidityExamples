@@ -200,6 +200,9 @@ contract VotingGreeting is VotingGreetingInterface {
             else if (action == VoteType.VOTE_CHANGE_VOTING_VIEWING_PERIOD) {
                 dataHolder.setVoteViewingPeriod(uint16(votes[_participant].additionalInfo));
             }
+            else if (action == VoteType.VOTE_SET_NEW_IMPLEMENTATION) {
+                dataHolder.setVotingGreetingImpl(address(votes[_participant].additionalInfo));
+            }
             else if (action == VoteType.VOTE_CHANGE_GREETING) {
                 dataHolder.setGreeting(votes[_participant].additionalInfo);
             }

@@ -15,10 +15,12 @@
  */
 
 const VotingGreetingImpl = artifacts.require("./VotingGreeting.sol");
+const VotingGreetingImplV2 = artifacts.require("./VotingGreetingV2.sol");
 // All tests of the public API must be tested via the interface. This ensures all functions
 // which are assumed to be part of the public API actually are in the interface.
 const VotingGreeting = artifacts.require("./VotingGreetingInterface.sol");
 
+const VotingGreetingDataHolder = artifacts.require("./VotingGreetingDataHolder.sol");
 
 
 // Note that these values need to match what is set in the 1_initial_migration.js file.
@@ -74,6 +76,14 @@ module.exports = {
 
     getInstance: async function() {
         let impl = await VotingGreetingImpl.deployed();
+        // Note linking to the dataholder for this is done in the 1_initial_migration.js
+        return await VotingGreeting.at(impl.address);
+
+    },
+    getInstanceV2: async function() {
+        let impl = await VotingGreetingImplV2.deployed();
+        let dataHolder = await VotingGreetingDataHolder.deployed();
+        await impl.setDataHolder(dataHolder.address);
         return await VotingGreeting.at(impl.address);
     },
 
