@@ -15,11 +15,13 @@ var VotingGreetingImpl = artifacts.require("./VotingGreeting.sol");
 var VotingAlgMajority = artifacts.require("./VotingAlgMajority.sol");
 var VotingAlgMajorityWhoVoted = artifacts.require("./VotingAlgMajorityWhoVoted.sol");
 var VotingGreetingDataHolder = artifacts.require("./VotingGreetingDataHolder.sol");
+var VotingAnalysis = artifacts.require("./VotingAnalysis.sol");
 
 
 module.exports = function(deployer) {
     deployer.deploy(Migrations);
     deployer.deploy(VotingAlgMajority);
+    deployer.deploy(VotingAnalysis);
     deployer.deploy(VotingAlgMajorityWhoVoted).then(() => {
         return deployer.deploy(VotingGreetingImpl);
     }).then(() => {
