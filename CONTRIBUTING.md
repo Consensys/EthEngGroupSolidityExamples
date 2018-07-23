@@ -12,18 +12,19 @@
 
 [Styleguides](#styleguides)
 
+* [Solidity Styleguide](#solidity-styleguide)
 * [Java Styleguide](#java-styleguide)
 * [Documentation Styleguide](#documentation-styleguide)
 
 ## Code of Conduct
-* This project is governed by the [Orion Code of Conduct](CODE_OF_CONDUCT.md). By participating, 
+* This project is governed by the [Ethereum Engineering Group Meet-up Code of Conduct](CODE_OF_CONDUCT.md). By participating,
 you are agreeing to uphold this code. Please report unacceptable behavior.
 ## How to Contribute
 
 ### Reporting Bugs
 #### Before Submitting A Bug 
 * Ensure the bug is not already reported by searching on GitHub under 
-[Issues](https://github.com/consensys/orion/issues).
+[Issues](https://github.com/ConsenSys/EthEngGroupSolidityExamples/issues).
 #### How Do I Submit a (Good) Bug?
 * If you are unable to find an open issue addressing the problem, open a new one. Be sure to include a 
 **title and clear description**, as much relevant information as possible, and a **code sample** or 
@@ -42,7 +43,7 @@ happens and under which conditions it normally happens.
 
 ### Suggesting Enhancements
 #### Before Submitting An Enhancement Suggestion
-* [Search](https://github.com/consensys/orion/issues) to see if the enhancement has already been 
+* [Search](https://github.com/ConsenSys/EthEngGroupSolidityExamples/issues) to see if the enhancement has already been
 suggested. If it has, add a comment to the existing issue instead of opening a new one.
 
 #### How Do I Submit A (Good) Enhancement Suggestion?
@@ -59,17 +60,18 @@ the following information:
 ### Pull Requests
 All existing examples have tests. If these checks pass, pull requests will be reviewed by the project team against criteria including:
 * purpose - is this change useful
-* test coverage - are there unit/integration/acceptance tests demonstrating the change is effective
-* [style](#java-styleguide)
+* test coverage - are there tests demonstrating the change is effective
+* [style](#styleguides)
 * code consistency - naming, comments, design
 * changes that are solely formatting are likely to be rejected
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but 
 bigger changes should contain more detail.
 ## Styleguides
+### Solidity Styleguide
+* Use [Solidity code style](http://solidity.readthedocs.io/en/v0.4.24/style-guide.html)
 ### Java Styleguide
 * Use [Google code style](https://google.github.io/styleguide/javaguide.html)
-* Use spotless to ensure consistency of formatting - run the gradle task `spotlessApply`. 
 Ensure this tasks is run before submitting a pull request, since compliance is checked automatically.
 ### Documentation Styleguide
 * Use [Markdown](https://daringfireball.net/projects/markdown)
