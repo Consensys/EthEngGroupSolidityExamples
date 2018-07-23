@@ -71,6 +71,7 @@ contract VotingGreeting is VotingGreetingInterface {
     // For non-participant related votes, the participant is set as 0x00.
     address private constant VOTE_PARTICIPANT_NONE = 0x0;
 
+    // Data holder contract.
     VotingGreetingDataHolder dataHolder;
 
 
@@ -98,38 +99,6 @@ contract VotingGreeting is VotingGreetingInterface {
         require(msg.sender == initialOwner);
         require(address(dataHolder) == 0);
         dataHolder = VotingGreetingDataHolder(_dataHolder);
-    }
-
-
-
-    function getVersion() external pure returns (uint16) {
-        return VERSION_ONE;
-    }
-
-    function getGreeting() external view returns (uint256) {
-        return dataHolder.greeting();
-    }
-
-
-    function getVotingPeriod() external view returns (uint32) {
-        return dataHolder.votingPeriod();
-    }
-
-    function getVoteViewingPeriod() external view returns (uint32) {
-        return dataHolder.voteViewingPeriod();
-    }
-
-    function getVotingAlgorithm() external view returns (address) {
-        return dataHolder.votingAlgorithmContract();
-    }
-
-    function isParticipant(address _participant) external view returns(bool) {
-        return dataHolder.participants(_participant);
-    }
-
-
-    function getNumberParticipants() external view returns(uint32) {
-        return dataHolder.numParticipants();
     }
 
 
@@ -175,8 +144,7 @@ contract VotingGreeting is VotingGreetingInterface {
         vote(_participant, _action, true);
     }
 
-
-    function vote(address _participant, uint16 _action, bool _voteFor) public onlyParticipant() {
+    function vote(address _participant, uint16 _action, bool _voteFor) public {
         // This will throw an error if the action is not a valid VoteType.
         VoteType action = VoteType(_action);
 
@@ -252,6 +220,39 @@ contract VotingGreeting is VotingGreetingInterface {
     }
 
 
-    //event Dump(uint val1, uint val2, uint val3);
+    function getGreeting() external view returns (uint256) {
+        return dataHolder.greeting();
+    }
 
+    function getVotingPeriod() external view returns (uint32) {
+        return dataHolder.votingPeriod();
+    }
+
+    function getVoteViewingPeriod() external view returns (uint32) {
+        return dataHolder.voteViewingPeriod();
+    }
+
+    function getVotingAlgorithm() external view returns (address) {
+        return dataHolder.votingAlgorithmContract();
+    }
+
+    function isParticipant(address _participant) external view returns(bool) {
+        return dataHolder.participants(_participant);
+    }
+
+    function getNumberParticipants() external view returns(uint32) {
+        return dataHolder.numParticipants();
+    }
+
+    function getActiveVotes() external view returns(address[]) {
+        return activeVotes;
+    }
+
+
+    function getVersion() external pure returns (uint16) {
+        return VERSION_ONE;
+    }
+
+
+    //event Dump(uint val1, uint val2, uint val3);
 }
