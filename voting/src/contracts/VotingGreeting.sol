@@ -35,36 +35,39 @@ contract VotingGreeting is VotingGreetingInterface {
         VOTE_CHANGE_GREETING                // 7
     }
 
-
+    // The address which deployed the contract. This is only needed so the data holder can be set.
     address public initialOwner;
 
 
     struct Votes {
+        // The type of vote being voted on.
         VoteType voteType;
+        // The block number when voting will cease.
         uint endOfVotingBlockNumber;
+        // The contract to be used for assessing the votes.
         address votingAlgorithmContract;
-
-        // Have map as well as array to ensure constant time / constant cost look-up, independent of number of participants.
+        // Have map as well as array to ensure constant time / constant cost look-up,
+        // independent of number of participants.
         mapping(address=>bool) hasVoted;
-
+        // The number of participants who voted for the proposal.
         uint32 numVotedFor;
+        // The number of participants who voted against the proposal.
         uint32 numVotedAgainst;
-
-        // Address of user who has voted. Only needed so analysis contract can determine easily who has voted.
+        // Address of user who has voted. Only needed so analysis contract can determine who has voted.
         address[] addressVoted;
-        bool[] addressVotedFor; // True if the address voted for the action.
-
+        // True if the address at the same offset in addressVoted array has voted for the action.
+        bool[] addressVotedFor;
         // Additional information such as proposed voting contract, or proposed voting period.
         uint256 additionalInfo;
-
-        // Index into activeVotes array.
+        // Index into activeVotes array. This is needed so the entry in the active votes array can be
+        // deleted once the vote has been acted upon.
         uint activeVoteIndex;
     }
 
-    // Votes for setting a new greeting, adding and removing participants, for
-    // changing voting algorithm and voting period.
-    // For votes related to participants (adding or removing), then the address is of the affected participant.
-    // For votes not related to participants (set new greeting, change voting period or algorithm), then the address is 0.
+    // Votes for setting a new greeting, adding and removing participants, for changing voting algorithm and voting
+    // period. For votes related to participants (adding or removing), the address is of the affected participant.
+    // For votes not related to participants (set new greeting, change voting period or algorithm), then the
+    // address is 0.
     mapping(address=>Votes) votes;
     // An array containing what is actively being voted on.
     address[] activeVotes;
@@ -94,7 +97,7 @@ contract VotingGreeting is VotingGreetingInterface {
     }
 
 
-    // The owner can call this once only. They should call this when the contracts are first deployed.
+    // The owner can call this once only. They should call this when the contract is first deployed.
     function setDataHolder(address _dataHolder) external {
         require(msg.sender == initialOwner);
         require(address(dataHolder) == 0);

@@ -25,6 +25,9 @@ contract VotingAnalysis {
     /**
      * Return the an array of addresses being actively voted on. Due to issues with returning variable length arrays
      * from solidity, the returned array is limited to 10.
+     *
+     * @param _votingGreetingImpl  The address of the VotingGreeting contract.`
+     * @param _offset              The offset within the voting data structure to start with.
      */
     function activeVotes(address _votingGreetingImpl, uint _offset) external view returns (address[NUM_RETURNED]) {
         VotingGreetingInterface vg = VotingGreetingInterface(_votingGreetingImpl);
@@ -46,7 +49,7 @@ contract VotingAnalysis {
      * Find the offset of the first item actively being voted on.
      *
      * @param _votingGreetingImpl  The address of the VotingGreeting contract.`
-     * @param _offset              The offset within the voting data structure to use.
+     * @param _offset              The offset within the voting data structure to start with.
      * @return bool   True if there is an active vote.
      *         uint   The offset of the active vote.
      */
