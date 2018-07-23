@@ -75,21 +75,4 @@ contract('VotingGreeting: Empty Tests', function(accounts) {
         const actualNumParticipants = await greetingInterface.getNumberParticipants.call();
         assert.equal(actualNumParticipants, 1);
     });
-
-
-//    it("getNumberUnmaskedSidechainParticipants", async function() {
-  //      let pinningInstance = await Pinning.new();
-    //    let pinningAddress = pinningInstance.address;
-      //  let pinningInterface = await AbstractPinning.at(pinningAddress);
-//        let didNotTriggerError = false;
-  //      try {
-    //        const hasS = await pinningInterface.getNumberUnmaskedSidechainParticipants.call(zeroSidechainId, testOrgInfoAddress1);
-      //      didNotTriggerError = true;
-//        } catch(err) {
-  //          // Expect that a revert will be called as the transaction is being sent by an account other than the owner.
-    //        //console.log("ERROR! " + err.message);
-      //  }
-
-        //assert.equal(didNotTriggerError, false);
-//    });
 });
