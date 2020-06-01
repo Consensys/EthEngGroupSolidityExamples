@@ -68,6 +68,6 @@ contract VotingAnalysis {
     }
 
 
-    // TODO Write some code to provide ananlysis of an active vote.
+    // TODO Write some code to provide analysis of an active vote.
 
 }
