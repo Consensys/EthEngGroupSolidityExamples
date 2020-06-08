@@ -12,15 +12,20 @@
  */
 pragma solidity >=0.4.23;
 
-contract Simple {
-    uint256 public val1;
-    uint256 public val2;
+contract StorageLayout {
+    byte private valByte;
+    uint256 private valUint256a;
+    uint32 private valUint32;
+    uint64 private valUint64;
+    address private valAddress;
+    uint256 private valUint256b;
 
-    constructor() public {
-      val2 = 3;
-    }
-
-    function set(uint256 _param) external {
-      val1 = _param;
+    function set() external {
+        valByte = 0x10;
+        valUint256a = 0x11;
+        valUint32 = 0x12;
+        valUint64 = 0x13;
+        valAddress = address(0x14);
+        valUint256b = 0x15;
     }
 }

@@ -12,15 +12,10 @@
  */
 pragma solidity >=0.4.23;
 
-contract Simple {
-    uint256 public val1;
-    uint256 public val2;
+contract StorageMappings {
+    mapping(uint256 => uint256) private map;
 
-    constructor() public {
-      val2 = 3;
-    }
-
-    function set(uint256 _param) external {
-      val1 = _param;
+    function setMapVal(uint256 _key, uint256 _val) external {
+        map[_key] = _val;
     }
 }

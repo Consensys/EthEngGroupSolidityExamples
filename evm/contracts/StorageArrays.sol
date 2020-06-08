@@ -12,15 +12,15 @@
  */
 pragma solidity >=0.4.23;
 
-contract Simple {
-    uint256 public val1;
-    uint256 public val2;
+contract StorageArrays {
+    uint256[] private arrayUint256;
+    byte[] private arrayByte;
 
-    constructor() public {
-      val2 = 3;
+    function setUint256ArrayVal(uint256 _ofs, uint256 _val) external {
+        arrayUint256[_ofs] = _val;
     }
 
-    function set(uint256 _param) external {
-      val1 = _param;
+    function setByteArrayVal(uint256 _ofs, byte _val) external {
+        arrayByte[_ofs] = _val;
     }
 }
