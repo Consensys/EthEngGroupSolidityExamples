@@ -14,6 +14,7 @@ solc $CONTRACTSDIR/StorageLayout.sol --allow-paths . --asm --asm-json --hashes -
 solc $CONTRACTSDIR/StorageMappings.sol --allow-paths . --asm --asm-json --hashes --userdoc  --devdoc  --metadata --opcodes --bin --abi --optimize -o $BUILDDIRO --overwrite
 solc $CONTRACTSDIR/StorageBytes.sol --allow-paths . --asm --asm-json --hashes --userdoc  --devdoc  --metadata --opcodes --bin --abi --optimize -o $BUILDDIRO --overwrite
 solc $CONTRACTSDIR/StorageArrays.sol --allow-paths . --asm --asm-json --hashes --userdoc  --devdoc  --metadata --opcodes --bin --abi --optimize -o $BUILDDIRO --overwrite
+solc $CONTRACTSDIR/StorageMappings2.sol --allow-paths . --asm --asm-json --hashes --userdoc  --devdoc  --metadata --opcodes --bin --abi --optimize -o $BUILDDIRO --overwrite
 
 
 
