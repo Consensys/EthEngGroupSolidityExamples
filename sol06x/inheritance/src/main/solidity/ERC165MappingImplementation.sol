@@ -14,15 +14,17 @@
  */
 pragma solidity >=0.6.11;
 
-contract Immutable {
-    uint256 immutable val = 0x12345678;
-    uint256 immutable deployTime = init();
+import "./ERC165.sol";
 
-    function func2() external view returns (uint256) {
-        return val;
+contract ERC165MappingImplementation is ERC165 {
+    /// @dev You must not set element 0xffffffff to true
+    mapping(bytes4 => bool) internal supportedInterfaces;
+
+    constructor() internal {
+        supportedInterfaces[type(ERC165).interfaceId] = true;
     }
 
-    function init() private view returns (uint256) {
-       return now;
+    function supportsInterface(bytes4 interfaceID) external override view returns (bool) {
+        return supportedInterfaces[interfaceID];
     }
 }

@@ -15,8 +15,12 @@
 pragma solidity >=0.6.11;
 
 import "./Abstract.sol";
+import "./ERC165MappingImplementation.sol";
 
-contract Implementation is Abstract {
+contract Implementation is Abstract, ERC165MappingImplementation {
+    constructor() public {
+        supportedInterfaces[type(Interface).interfaceId] = true;
+    }
 
 
     function func2() public override {
@@ -36,7 +40,4 @@ contract Implementation is Abstract {
     }
 
     uint256 constant public override version = 2;
-
-
-
 }
