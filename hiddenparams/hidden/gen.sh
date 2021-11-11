@@ -13,6 +13,8 @@ WEB3J=web3j
 
 solc $CONTRACTSDIR/Dest.sol --allow-paths . --bin --abi --optimize -o $BUILDDIR --overwrite
 solc $CONTRACTSDIR/Source.sol --allow-paths . --bin --abi --optimize -o $BUILDDIR --overwrite
+solc $CONTRACTSDIR/HiddenParams2.sol --allow-paths . --bin --abi --optimize -o $BUILDDIR --overwrite
 
 $WEB3J generate solidity -a=$BUILDDIR/Dest.abi -b=$BUILDDIR/Dest.bin -o=$OUTPUTDIR -p=$PACKAGE
 $WEB3J generate solidity -a=$BUILDDIR/Source.abi -b=$BUILDDIR/Source.bin -o=$OUTPUTDIR -p=$PACKAGE
+$WEB3J generate solidity -a=$BUILDDIR/HiddenParams2.abi -b=$BUILDDIR/HiddenParams2.bin -o=$OUTPUTDIR -p=$PACKAGE
